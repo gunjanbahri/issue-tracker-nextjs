@@ -27,7 +27,7 @@ const NavBar = () => {
             <Link
               className={classnames({
                 "text-yellow-500": link.href === currentPath,
-                "text-gray-50": link.href !== currentPath,
+                "text-gray-700": link.href !== currentPath,
                 "font-bold": link.href === currentPath,
               })}
               href={link.href}
