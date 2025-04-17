@@ -146,7 +146,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
@@ -156,16 +156,17 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:Admin@29@localhost:3306/issue-tracker"
+        "value": null
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Issue {\n  id          Int      @id @default(autoincrement())\n  title       String   @db.VarChar(255)\n  description String   @db.Text\n  status      Status   @default(OPEN)\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nenum Status {\n  OPEN\n  IN_PROGRESS\n  CLOSED\n}\n",
-  "inlineSchemaHash": "1825c6b39ec9d3e80aaedc8c3f43ede200c0823c0983af4744b61b77d91b1bed",
+  "inlineSchema": "// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Issue {\n  id          Int      @id @default(autoincrement())\n  title       String   @db.VarChar(255)\n  description String   @db.Text\n  status      Status   @default(OPEN)\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nenum Status {\n  OPEN\n  IN_PROGRESS\n  CLOSED\n}\n",
+  "inlineSchemaHash": "8702f7ddefd5aca41c11060f1b4d1bac00ca00866ebcc6461d15ca6639b72545",
   "copyEngine": true
 }
 
