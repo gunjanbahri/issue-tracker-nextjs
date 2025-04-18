@@ -4,7 +4,7 @@
 
 generator client {
  provider = "prisma-client-js"
-//  output   = "../app/generated/prisma"
+ //output   = "../app/generated/prisma"
 }
 
 
@@ -28,7 +28,6 @@ enum Status {
   OPEN
   IN_PROGRESS
   CLOSED
-  ZUMBA
 }
 
 
