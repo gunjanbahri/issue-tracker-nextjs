@@ -6,7 +6,7 @@ interface Props {
   href: string;
   children: string;
 }
-const Link = ({ href, children }: Props) => {
+export const Link = ({ href, children }: Props) => {
   return (
     <NextLink href={href} passHref legacyBehavior>
       <RadixLink className="text-blue-500 hover:text-blue-700">
@@ -15,5 +15,3 @@ const Link = ({ href, children }: Props) => {
     </NextLink>
   );
 };
-
-export default Link;

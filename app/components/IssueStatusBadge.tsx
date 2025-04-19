@@ -23,10 +23,8 @@ const statusMap: Record<
     color: "green",
   },
 };
-const IssueStatusBadge = ({ status }: Props) => {
+export const IssueStatusBadge = ({ status }: Props) => {
   return (
     <Badge color={statusMap[status].color}>{statusMap[status].label}</Badge>
   );
 };
-
-export default IssueStatusBadge;

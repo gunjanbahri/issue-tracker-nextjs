@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { Text } from "@radix-ui/themes";
 
-const ErrorMessage = ({ children }: PropsWithChildren) => {
+export const ErrorMessage = ({ children }: PropsWithChildren) => {
   if (!children) {
     return null;
   }
@@ -11,5 +11,3 @@ const ErrorMessage = ({ children }: PropsWithChildren) => {
     </Text>
   );
 };
-
-export default ErrorMessage;
