@@ -19,7 +19,7 @@ export async function PATCH(request: NextRequest, { params }: Props) {
     });
   }
 
-  const issue = prisma.issue.findUnique({
+  const issue = await prisma.issue.findUnique({
     where: {
       id: parseInt(id),
     },
@@ -28,16 +28,16 @@ export async function PATCH(request: NextRequest, { params }: Props) {
   if (!issue) {
     return NextResponse.json({ message: "Issue not found" }, { status: 404 });
   }
+
   const updatedIssue = await prisma.issue.update({
     where: {
-      id: parseInt(id),
+      id: issue.id,
     },
     data: {
       title: body.title,
       description: body.description,
     },
   });
-  return NextResponse.json(updatedIssue, {
-    status: 200,
-  });
+
+  return NextResponse.json(updatedIssue);
 }
