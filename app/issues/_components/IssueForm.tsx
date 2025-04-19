@@ -3,13 +3,15 @@ import { issueSchema } from "@/app/createIssueSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import axios from "axios";
+import "easymde/dist/easymde.min.css";
+import SimpleMDE from "react-simplemde-editor";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 import { z } from "zod";
-import { ErrorMessage, Spinner, MarkdownEditor } from "../../components";
+import { ErrorMessage, Spinner } from "../../components";
 import { Issue } from "@prisma/client";
 
 type IssueFormData = z.infer<typeof issueSchema>;
@@ -65,7 +67,7 @@ const IssueForm = ({ issue }: Props) => {
           control={control}
           defaultValue={issue?.description}
           render={({ field }) => (
-            <MarkdownEditor placeholder="Description" {...field} />
+            <SimpleMDE placeholder="Description" {...field} />
           )}
         />
         <ErrorMessage>{errors?.description?.message}</ErrorMessage>
