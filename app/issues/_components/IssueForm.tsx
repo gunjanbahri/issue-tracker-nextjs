@@ -1,5 +1,5 @@
 "use client";
-import { createIssueSchema } from "@/app/createIssueSchema";
+import { issueSchema } from "@/app/createIssueSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import axios from "axios";
@@ -12,7 +12,7 @@ import { z } from "zod";
 import { ErrorMessage, Spinner, MarkdownEditor } from "../../components";
 import { Issue } from "@prisma/client";
 
-type IssueFormData = z.infer<typeof createIssueSchema>;
+type IssueFormData = z.infer<typeof issueSchema>;
 
 interface Props {
   issue?: Issue;
@@ -28,7 +28,7 @@ const IssueForm = ({ issue }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<IssueFormData>({
-    resolver: zodResolver(createIssueSchema),
+    resolver: zodResolver(issueSchema),
   });
 
   const onSubmit = handleSubmit(async (data) => {
