@@ -3,13 +3,13 @@ import { createIssueSchema } from "@/app/createIssueSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Callout, TextField } from "@radix-ui/themes";
 import axios from "axios";
-import "easymde/dist/easymde.min.css";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import SimpleMDE from "react-simplemde-editor";
+
 import { z } from "zod";
-import { ErrorMessage, Spinner } from "../../components";
+import { ErrorMessage, Spinner, MarkdownEditor } from "../../components";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -51,7 +51,7 @@ const NewIssuePage = () => {
           name="description"
           control={control}
           render={({ field }) => (
-            <SimpleMDE placeholder="Description" {...field} />
+            <MarkdownEditor placeholder="Description" {...field} />
           )}
         />
         <ErrorMessage>{errors?.description?.message}</ErrorMessage>
