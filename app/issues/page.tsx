@@ -49,4 +49,9 @@ const IssuesPage = async () => {
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Issues",
+  description: "List of issues",
+};
+
 export default IssuesPage;
